@@ -6,7 +6,9 @@ export default function Layout() {
     <div>
       <div class="container">
         <div class="item1">Header</div>
-        <div class="item2">Sidebar</div>
+        <div class="item2">
+          <ScoreList />
+        </div>
         <div class="item3">
           <Game />
         </div>
