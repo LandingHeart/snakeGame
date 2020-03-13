@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Guest = require("../models/Guest");
 
-router.get("/guest", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const guest = await Guest.find();
     res.json(guest);
