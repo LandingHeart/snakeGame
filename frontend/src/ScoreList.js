@@ -20,14 +20,20 @@ export default class ScoreList extends Component {
       .catch(err => console.log(err));
     console.log(this.state);
   }
+  renderPlayerInfo = () => {
+    const data = this.state.players;
+
+    const playerInfo = data.map((item, index) => (
+      <div key={item.id}>
+        <li>{item.playerName}</li>
+      </div>
+    ));
+    return playerInfo;
+  };
   render() {
     return (
       <div>
-        <ul>
-          {this.state.players.map(item => {
-            <li>{item.playerName}</li>;
-          })}
-        </ul>
+        <ul>{this.renderPlayerInfo()}</ul>
       </div>
     );
   }

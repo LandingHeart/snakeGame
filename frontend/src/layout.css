@@ -6,29 +6,17 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 2fr 3fr 3fr;
-  grid-template-rows: 1fr 10fr 1fr;
-  grid-template-areas:
-    "header header header"
-    "sidebar content content"
-    "footer footer footer";
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "sidebar content content";
+  justify-content: center;
 }
 
-.item1 {
-  grid-area: header;
-  background-color: #ccc;
-}
-.item2 {
+.sidebar {
   grid-area: sidebar;
   background-color: #dde986;
 }
 
-.item3 {
+.game-content {
   grid-area: content;
   background-color: rgb(121, 218, 188);
-}
-
-.item4 {
-  grid-area: footer;
-  background-color: rgb(150, 168, 120);
 }

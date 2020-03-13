@@ -1,18 +1,17 @@
 import React from "react";
 import Game from "./Game";
+import ScoreList from './ScoreList'
 import "./layout.css";
 export default function Layout() {
   return (
     <div>
       <div class="container">
-        <div class="item1">Header</div>
-        <div class="item2">
+        <div class="sidebar">
           <ScoreList />
         </div>
-        <div class="item3">
+        <div class="game-content">
           <Game />
         </div>
-        <div class="item4">Footer</div>
       </div>
     </div>
   );
