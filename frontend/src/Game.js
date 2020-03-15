@@ -11,14 +11,15 @@ const getRandomPos = () => {
 };
 var myint;
 const initialState = {
+  playerName: "player1",
+  score: 0,
   food: getRandomPos(),
   speed: 60,
   snakeDots: [
     [0, 0],
     [2, 0]
   ],
-  direction: "R",
-  score: 0
+  direction: "R"
 };
 export default class Game extends Component {
   state = initialState;
@@ -103,7 +104,30 @@ export default class Game extends Component {
     });
     clearInterval(myint);
     alert("Your score is " + this.state.score);
+    this.add();
   }
+
+  async add() {
+    const obj = {
+      playerName: this.state.playerName,
+      score: this.state.score
+    };
+    fetch("/players/add", {
+      method: "POST",
+      body: JSON.stringify(obj), //add the obj
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => {
+        let json = resp.json();
+        console.log(json);
+      })
+      .catch(err => console.log(err));
+  }
+ 
+  
+
   increaseSpeed() {
     this.setState({
       speed: this.state.speed - 10

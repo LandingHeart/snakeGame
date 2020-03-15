@@ -8,7 +8,7 @@ export default class ScoreList extends Component {
     this.fetchScores();
   }
   async fetchScores() {
-    fetch("/score")
+    fetch("/players")
       .then(response => {
         if (response.status === 200) {
           return response.json();
@@ -25,7 +25,7 @@ export default class ScoreList extends Component {
 
     const playerInfo = data.map((item, index) => (
       <div key={item.id}>
-        <li>{item.playerName}</li>
+        <li>asldkfjasdkl {item.playerName}</li>
       </div>
     ));
     return playerInfo;
@@ -33,7 +33,7 @@ export default class ScoreList extends Component {
   render() {
     return (
       <div>
-        <ul>{this.renderPlayerInfo()}</ul>
+        <ul>{this.renderPlayerInfo}</ul>
       </div>
     );
   }

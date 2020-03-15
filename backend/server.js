@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const guestModel = require("./routes/guest");
+const playerModel = require("./routes/player");
 const port = process.env.PORT || 8080;
 
 require("dotenv/config");
@@ -14,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connected to port " + port)
 );
-app.use("/guest", guestModel);
+app.use("/players", playerModel);
 app.use(bodyParser.json());
 app.use(cookieparser());
 app.use(cors());
