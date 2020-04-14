@@ -11,7 +11,8 @@ export default function App() {
         style={{ backgroundColor: "lightBlue", padding: "50px" }}
       >
         <p>
-          This game is a snake game which will eat the apple appear in board
+          This game is a snake game, and like eating apple appearing in the
+          board
         </p>
         <p>Use the arrow key to move around the board</p>
       </div>
