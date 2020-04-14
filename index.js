@@ -33,11 +33,7 @@ app.use("/score", scoreModel);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
-  app.use("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
 }
-
 
 app.listen(port, () => {
   console.log(`Server running at PORT: ${port}`);
