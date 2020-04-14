@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-.container {
+.containerGrid {
   width: 100vw;
   height: 100vh;
   display: grid;

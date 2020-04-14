@@ -1,18 +1,19 @@
 import React from "react";
 import Game from "./Game";
-import ScoreList from './ScoreList'
+import ScoreList from "./ScoreList";
 import "./layout.css";
-export default function Layout() {
+const Layout = (props) => {
   return (
     <div>
-      <div class="container">
-        <div class="sidebar">
+      <div className="containerGrid">
+        <div className="sidebar">
           <ScoreList />
         </div>
-        <div class="game-content">
+        <div className="game-content">
           <Game />
         </div>
       </div>
     </div>
   );
-}
+};
+export default Layout;

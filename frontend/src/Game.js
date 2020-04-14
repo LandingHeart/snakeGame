@@ -11,15 +11,14 @@ const getRandomPos = () => {
 };
 var myint;
 const initialState = {
-  playerName: "player1",
   score: 0,
   food: getRandomPos(),
-  speed: 60,
+  speed: 70,
   snakeDots: [
     [0, 0],
-    [2, 0]
+    [2, 0],
   ],
-  direction: "R"
+  direction: "R",
 };
 export default class Game extends Component {
   state = initialState;
@@ -31,10 +30,10 @@ export default class Game extends Component {
     this.checkCollision();
     this.checkEat();
   }
-  startGame = e => {
+  startGame = (e) => {
     myint = setInterval(this.moveSnake, this.state.speed);
   };
-  onKeyDown = e => {
+  onKeyDown = (e) => {
     e = e || window.event;
 
     switch (e.keyCode) {
@@ -64,7 +63,7 @@ export default class Game extends Component {
     let snake = [...this.state.snakeDots];
     let head = snake[snake.length - 1];
     snake.pop();
-    snake.forEach(dot => {
+    snake.forEach((dot) => {
       if (head[0] === dot[0] && head[1] === dot[1]) {
         this.gameOver();
       }
@@ -75,7 +74,7 @@ export default class Game extends Component {
     let food = this.state.food;
     if (head[0] === food[0] && head[1] === food[1]) {
       this.setState({
-        food: getRandomPos()
+        food: getRandomPos(),
       });
       this.eatFruit();
       this.increaseSpeed();
@@ -88,7 +87,7 @@ export default class Game extends Component {
     this.increaseSpeed();
     this.setState({
       snakeDots: newSnake,
-      score: this.state.score + 10
+      score: this.state.score + 10,
     });
   }
   gameOver() {
@@ -97,10 +96,10 @@ export default class Game extends Component {
       speed: 200,
       snakeDots: [
         [0, 0],
-        [2, 0]
+        [2, 0],
       ],
       direction: "R",
-      score: 0
+      score: 0,
     });
     clearInterval(myint);
     alert("Your score is " + this.state.score);
@@ -109,28 +108,25 @@ export default class Game extends Component {
 
   async add() {
     const obj = {
-      playerName: this.state.playerName,
-      score: this.state.score
+      score: this.state.score,
     };
-    fetch("/players/add", {
+    fetch("/score/add", {
       method: "POST",
       body: JSON.stringify(obj), //add the obj
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(resp => {
+      .then((resp) => {
         let json = resp.json();
         console.log(json);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
- 
-  
 
   increaseSpeed() {
     this.setState({
-      speed: this.state.speed - 10
+      speed: this.state.speed - 10,
     });
   }
   moveSnake = () => {
@@ -155,7 +151,7 @@ export default class Game extends Component {
     dots.push(head);
     dots.shift();
     this.setState({
-      snakeDots: dots
+      snakeDots: dots,
     });
   };
 
