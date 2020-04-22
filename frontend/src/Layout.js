@@ -10,6 +10,16 @@ const Layout = (props) => {
           <ScoreList />
         </div>
         <div className="game-content">
+          <div
+            className="container"
+            style={{ backgroundColor: "lightBlue", padding: "10px" }}
+          >
+            <p>
+              This game is a snake game, and like eating apple appearing in the
+              board
+            </p>
+            <p>Use the arrow key to move around the board</p>
+          </div>
           <Game />
         </div>
       </div>
